@@ -1,0 +1,78 @@
+## Archivo de configuracion para el juego de Tetris
+## Desarrollado por Santiago Barrientos, Juan Estaban Rayo y Manuel Gutiérrez.
+
+
+## ==================================
+## PARAMETROS GENERALES DEL JUEGO
+## ==================================
+nombre_juego : 'snake'
+version : '1.0'
+##INICIALIZACIONES BASICAS
+[obstaculos] : {
+  activos: true
+  generacion_aleatoria: true
+  cantidad_maxima: 10
+}
+
+[velocidad_inicial] : {
+  valor: 5      ## en celdas por segundo
+}
+##dimensiones_tablero
+[dimensiones_tablero] : {
+  ancho: 20
+  alto: 20
+}
+##TIPOS DE COMIDA
+[manzana_normal]: {
+    tipo:'manzana_regular'
+    color:'verde'
+    puntuacion: 10
+    duracion : 10
+}
+[regla_comida_especial] : {
+  tipo: 'manzana_dorada'
+  color: 'amarillo'
+  puntos_extra: 50
+  duracion: 8     #segundos que dura la manzana en el tablero
+}
+[regla_comida_nosiva]:{
+    tipo:'manzana_negra'
+    color: 'negro'
+    puntos_extra:-50
+    duracion: 10   #segundos que dura la manzana en el tablero
+}
+##REGLAS GENERALES
+[regla_comida] : {
+  evento: 'serpiente_come'
+  accion: 'aumentar_longitud'
+  puntuacion_por_comida: 10
+}
+
+
+
+[regla_fin_juego] : {
+  condicion: ["choque_pared", "choque_cola"]
+}
+
+
+
+[regla_velocidad] : {
+  aumento_velocidad: 'si'
+  puntos_por_nivel: 100
+  multiplicador_velocidad: 1.1
+}
+
+[regla_colisiones] : {
+  contra_pared: true
+  contra_cola: true
+}
+##CONTROLES BASICOS
+[controles] : {
+  mover_arriba: 'w'
+  mover_abajo: 's'
+  mover_izquierda: 'a'
+  mover_derecha: 'd'
+
+  pausar: 'p'
+  reiniciar: 'r'
+}
