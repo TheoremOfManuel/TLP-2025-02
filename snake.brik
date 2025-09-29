@@ -1,13 +1,13 @@
-## Archivo de configuracion para el juego de Tetris
-## Desarrollado por Santiago Barrientos, Juan Estaban Rayo y Manuel Gutiérrez.
+# Archivo de configuracion para el juego de Tetris
+# Desarrollado por Santiago Barrientos, Juan Estaban Rayo y Manuel Gutiérrez.
 
 
-## ==================================
-## PARAMETROS GENERALES DEL JUEGO
-## ==================================
+# ==================================
+# PARAMETROS GENERALES DEL JUEGO
+# ==================================
 nombre_juego : 'snake'
 version : '1.0'
-##INICIALIZACIONES BASICAS
+#INICIALIZACIONES BASICAS
 [obstaculos] : {
   activos: true
   generacion_aleatoria: true
@@ -15,14 +15,14 @@ version : '1.0'
 }
 
 [velocidad_inicial] : {
-  valor: 5      ## en celdas por segundo
+  valor: 5      # en celdas por segundo
 }
-##dimensiones_tablero
+#dimensiones_tablero
 [dimensiones_tablero] : {
   ancho: 20
   alto: 20
 }
-##TIPOS DE COMIDA
+#TIPOS DE COMIDA
 [manzana_normal]: {
     tipo:'manzana_regular'
     color:'verde'
@@ -41,7 +41,7 @@ version : '1.0'
     puntos_extra:-50
     duracion: 10   #segundos que dura la manzana en el tablero
 }
-##REGLAS GENERALES
+#REGLAS GENERALES
 [regla_comida] : {
   evento: 'serpiente_come'
   accion: 'aumentar_longitud'
@@ -66,7 +66,7 @@ version : '1.0'
   contra_pared: true
   contra_cola: true
 }
-##CONTROLES BASICOS
+#CONTROLES BASICOS
 [controles] : {
   mover_arriba: 'w'
   mover_abajo: 's'
