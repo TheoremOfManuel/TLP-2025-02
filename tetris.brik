@@ -39,10 +39,11 @@ velocidad_inicial : 1.0
 
 [regla_pieza_taladro] : {
 	tipo_pieza : "taladro"
-	color : "amarillo"
-	ancho : 1                   # 1 = columna; podrías permitir 2 para un “megataladro”
-	profundidad_max : 6         # celdas a perforar
-	afecta_lineas : true        # si perfora bloques que formarían línea ese tick
+	color : 'gris'
+	ancho : 1                   
+	largo : 6
+    profundidad_max : 6         
+	afecta_bloques : true        
 	puntuacion_extra : 1        # 1 por cada bloque eliminado
 }
 
@@ -82,3 +83,118 @@ velocidad_inicial : 1.0
     pausar : 'p'
     reiniciar : 'r'
 }
+
+# ==================================
+# DEFINICION DE LAS PIEZAS
+# ==================================
+# Definiciones de las figuras principales I, O, T, L, J, S, Z,
+# la bomba se mantienen igual y la pieza taladro. 
+# las rotaciones son posiciones en una matriz cuadrada del tamaño de la figura.
+
+# Figura I de color cian
+[figura_I] : {
+    color : 'cian'
+    rotaciones : [
+        # Rotacion 0 y 180 (horizontal)
+        [ [0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0] ],
+        # Rotacion 90 y 270 (vertical)
+        [ [0, 1, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0] ]
+    ]
+}
+
+# Figura O de color amarillo
+[figura_O] : {
+    color = 'amarillo'
+    rotaciones : [
+        # La pieza O no cambia al rotar
+        [ [1, 1], [1, 1] ]
+    ]
+}
+
+# Figura T de color morado
+figura_T : {
+    color : 'morado'
+    rotaciones : [
+        # Rotacion 0
+        [ [0, 1, 0], [1, 1, 1], [0, 0, 0] ],
+        # Rotacion 90
+        [ [0, 1, 0], [0, 1, 1], [0, 1, 0] ],
+        # Rotacion 180
+        [ [0, 0, 0], [1, 1, 1], [0, 1, 0] ],
+        # Rotacion 270
+        [ [0, 1, 0], [1, 1, 0], [0, 1, 0] ]
+    ]
+}
+
+# Figura L de color naranja
+[figura_L] : {
+    color : 'naranja'
+    rotaciones : [
+        # Rotacion 0
+        [ [0, 0, 1], [1, 1, 1], [0, 0, 0] ],
+        # Rotacion 90
+        [ [0, 1, 0], [0, 1, 0], [0, 1, 1] ],
+        # Rotacion 180
+        [ [0, 0, 0], [1, 1, 1], [1, 0, 0] ],
+        # Rotacion 270
+        [ [1, 1, 0], [0, 1, 0], [0, 1, 0] ]
+    ]
+}
+
+# Figura J de color azul
+[figura_J] : {
+    color : 'azul'
+    rotaciones = [
+        # Rotacion 0
+        [ [1, 0, 0], [1, 1, 1], [0, 0, 0] ],
+        # Rotacion 90
+        [ [0, 1, 1], [0, 1, 0], [0, 1, 0] ],
+        # Rotacion 180
+        [ [0, 0, 0], [1, 1, 1], [0, 0, 1] ],
+        # Rotacion 270
+        [ [0, 1, 0], [0, 1, 0], [1, 1, 0] ]
+    ]
+}
+
+# Figura S de color verde
+[figura_S] : {
+    color : 'verde'
+    rotaciones : [
+        # Rotacion 0 y 180, son la misma
+        [ [0, 1, 1], [1, 1, 0], [0, 0, 0] ],
+        # Rotacion 90 y 270, son la misma
+        [ [0, 1, 0], [0, 1, 1], [0, 0, 1] ]
+    ]
+}
+
+# Figura Z de color rojo
+figura_Z : {
+    color : 'rojo'
+    rotaciones : [
+        # Rotacion 0 y 180
+        [ [1, 1, 0], [0, 1, 1], [0, 0, 0] ],
+        # Rotacion 90 y 270
+        [ [0, 0, 1], [0, 1, 1], [0, 1, 0] ]
+    ]
+}
+
+# Figura para la bomba, que es un solo ladrillo.
+# Para evitar errores en la lógica de rotación, definimos una sola rotación.
+[figura_bomba] : {
+    color = "rojo_especial"
+    rotaciones = [
+        [ [1] ]
+    ]
+}
+
+[figura_taladro] : {
+    color : 'gris'
+    rotaciones : [
+        # vertical, no puede rotarse
+        [ [0, 1, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0],[0, 1, 0, 0],[0, 1, 0, 0] ]
+    ]
+}
+
+
+# Lista de todas las figuras que el juego puede usar
+figuras_disponibles : [figura_I, figura_O, figura_T, figura_L, figura_J, figura_S, figura_Z, figura_bomba, figura_taladro]

@@ -187,6 +187,17 @@ class Parser:
             lista.append(self.parsear_valor())
         return lista
 
+#Guardar como archivo arbol ast
+def save_ast_to_file(ast, filepath):
+    """
+    Guarda el AST en un archivo de texto en formato JSON.
+    """
+    try:
+        with open(filepath, 'w', encoding='utf-8') as file:
+            json.dump(ast, file, indent=4)
+        print(f"AST guardado exitosamente en '{filepath}'")
+    except Exception as e:
+        print(f"Error al guardar el archivo: {e}")
 
 # ---------------------------
 # PROGRAMA PRINCIPAL
@@ -213,10 +224,8 @@ for ruta in archivos:
     parser = Parser(tokens)
     resultado = parser.parsear()
 
-    #print(f"\n=== Archivo {ruta} ===")
-    #print("Tokens:")
-    #for i, t in enumerate(tokens):
-    #    print(f"{i:03d}: {t}")
-
     print("\nResultado en JSON :")
     print(json.dumps(resultado, indent=2, ensure_ascii=False))
+
+    #guardar el AST en un archivo
+    save_ast_to_file(resultado, p.with_suffix('.ast.json'))
