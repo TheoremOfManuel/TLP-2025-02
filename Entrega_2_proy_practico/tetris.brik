@@ -5,7 +5,7 @@
 # ==================================
 # PARAMETROS GENERALES DEL JUEGO
 # ==================================
-nombre_juego : 'Tetris'
+nombre_juego : 'Tetris Clasico'
 version : '1.0'
 
 # Dimensiones del tablero: ancho y alto
@@ -112,7 +112,7 @@ velocidad_inicial : 1.0
 }
 
 # Figura T de color morado
-[figura_T] : {
+figura_T : {
     color : 'morado'
     rotaciones : [
         # Rotacion 0
@@ -168,7 +168,7 @@ velocidad_inicial : 1.0
 }
 
 # Figura Z de color rojo
-[figura_Z] : {
+figura_Z : {
     color : 'rojo'
     rotaciones : [
         # Rotacion 0 y 180
